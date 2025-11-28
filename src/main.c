@@ -1,5 +1,5 @@
 /**
- * Project Watchtower - Linux Userspace EDR
+ * Project Overwatch - Linux Userspace EDR
  * Main Entry Point
  * 
  * This is the main program that ties all phases together:
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
     /* Print the banner */
     print_banner();
     
-    log_message(LOG_LEVEL_INFO, "Project Watchtower EDR starting...");
+    log_message(LOG_LEVEL_INFO, "Project Overwatch EDR starting...");
     log_message(LOG_LEVEL_INFO, "Target program: %s", argv[program_idx]);
     
     /* Initialize detection rules */

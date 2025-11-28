@@ -1,5 +1,5 @@
 /**
- * Project Watchtower - Linux Userspace EDR
+ * Project Overwatch - Linux Userspace EDR
  * Phase 1: Process Instrumentation (The Spy)
  * 
  * This module handles the core ptrace operations:

@@ -1,5 +1,5 @@
 /**
- * Project Watchtower - Linux Userspace EDR
+ * Project Overwatch - Linux Userspace EDR
  * Utility Functions
  * 
  * This module provides common utilities:
@@ -22,39 +22,45 @@
 static int g_log_level = LOG_LEVEL_INFO;
 
 /* ANSI color codes */
-#define COLOR_RESET   "\033[0m"
-#define COLOR_RED     "\033[31m"
-#define COLOR_GREEN   "\033[32m"
-#define COLOR_YELLOW  "\033[33m"
-#define COLOR_BLUE    "\033[34m"
-#define COLOR_MAGENTA "\033[35m"
-#define COLOR_CYAN    "\033[36m"
-#define COLOR_WHITE   "\033[37m"
-#define COLOR_BOLD    "\033[1m"
+#define COLOR_RESET       "\033[0m"
+#define COLOR_RED         "\033[31m"
+#define COLOR_GREEN       "\033[32m"
+#define COLOR_YELLOW      "\033[33m"
+#define COLOR_BLUE        "\033[34m"
+#define COLOR_MAGENTA     "\033[35m"
+#define COLOR_CYAN        "\033[36m"
+#define COLOR_WHITE       "\033[37m"
+#define COLOR_BOLD        "\033[1m"
 #define COLOR_BOLD_RED    "\033[1;31m"
 #define COLOR_BOLD_GREEN  "\033[1;32m"
 #define COLOR_BOLD_YELLOW "\033[1;33m"
+#define COLOR_BOLD_BLUE   "\033[1;34m"
+#define COLOR_BOLD_MAGENTA "\033[1;35m"
+#define COLOR_BOLD_CYAN   "\033[1;36m"
+#define COLOR_BOLD_WHITE  "\033[1;37m"
+#define COLOR_BG_BLUE     "\033[44m"
+#define COLOR_ORANGE      "\033[38;5;208m"
+#define COLOR_BOLD_ORANGE "\033[1;38;5;208m"
 
 /**
- * Print the Project Watchtower banner
+ * Print the Project Overwatch banner
  */
 void print_banner(void) {
     printf("\n");
-    printf(COLOR_CYAN);
-    printf("╔══════════════════════════════════════════════════════════════════╗\n");
-    printf("║                                                                  ║\n");
-    printf("║" COLOR_BOLD_YELLOW "   ██╗    ██╗ █████╗ ████████╗ ██████╗██╗  ██╗████████╗ ██████╗    " COLOR_CYAN "║\n");
-    printf("║" COLOR_BOLD_YELLOW "   ██║    ██║██╔══██╗╚══██╔══╝██╔════╝██║  ██║╚══██╔══╝██╔═══██╗   " COLOR_CYAN "║\n");
-    printf("║" COLOR_BOLD_YELLOW "   ██║ █╗ ██║███████║   ██║   ██║     ███████║   ██║   ██║   ██║   " COLOR_CYAN "║\n");
-    printf("║" COLOR_BOLD_YELLOW "   ██║███╗██║██╔══██║   ██║   ██║     ██╔══██║   ██║   ██║   ██║   " COLOR_CYAN "║\n");
-    printf("║" COLOR_BOLD_YELLOW "   ╚███╔███╔╝██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╔╝   " COLOR_CYAN "║\n");
-    printf("║" COLOR_BOLD_YELLOW "    ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝    " COLOR_CYAN "║\n");
-    printf("║                                                                  ║\n");
-    printf("║" COLOR_WHITE "              PROJECT WATCHTOWER - Linux EDR v%s            " COLOR_CYAN "║\n", WATCHTOWER_VERSION);
-    printf("║" COLOR_WHITE "                  Userspace Process Tracer                       " COLOR_CYAN "║\n");
-    printf("║                                                                  ║\n");
-    printf("╚══════════════════════════════════════════════════════════════════╝\n");
-    printf(COLOR_RESET);
+    printf("\033[1;34m");  /* Bold Blue border */
+    printf("╔══════════════════════════════════════════════════════════════════════╗\n");
+    printf("║\033[0m                                                                      \033[1;34m║\n");
+    printf("║\033[1;38;5;208m    ██████╗ ██╗   ██╗███████╗██████╗ ██╗    ██╗ █████╗ ████████╗ ██████╗██╗  ██╗  \033[1;34m║\n");
+    printf("║\033[1;38;5;208m   ██╔═══██╗██║   ██║██╔════╝██╔══██╗██║    ██║██╔══██╗╚══██╔══╝██╔════╝██║  ██║  \033[1;34m║\n");
+    printf("║\033[1;33m   ██║   ██║██║   ██║█████╗  ██████╔╝██║ █╗ ██║███████║   ██║   ██║     ███████║  \033[1;34m║\n");
+    printf("║\033[1;33m   ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗██║███╗██║██╔══██║   ██║   ██║     ██╔══██║  \033[1;34m║\n");
+    printf("║\033[1;31m   ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║╚███╔███╔╝██║  ██║   ██║   ╚██████╗██║  ██║  \033[1;34m║\n");
+    printf("║\033[1;31m    ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝  \033[1;34m║\n");
+    printf("║\033[0m                                                                      \033[1;34m║\n");
+    printf("║\033[1;37m                   ⚡ PROJECT OVERWATCH ⚡  v%s                     \033[1;34m║\n", OVERWATCH_VERSION);
+    printf("║\033[0;36m                Linux Userspace EDR • Syscall Tracer                   \033[1;34m║\n");
+    printf("║\033[0m                                                                      \033[1;34m║\n");
+    printf("╚══════════════════════════════════════════════════════════════════════╝\033[0m\n");
     printf("\n");
 }
 
@@ -253,7 +259,7 @@ int parse_arguments(int argc, char *argv[], tracer_context_t *ctx) {
             exit(0);
         }
         else if (strcmp(argv[i], "-v") == 0 || strcmp(argv[i], "--version") == 0) {
-            printf("Project Watchtower v%s\n", WATCHTOWER_VERSION);
+            printf("Project Overwatch v%s\n", OVERWATCH_VERSION);
             exit(0);
         }
         else if (argv[i][0] == '-') {

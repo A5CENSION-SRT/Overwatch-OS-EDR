@@ -1,5 +1,5 @@
 /**
- * Project Watchtower - Linux Userspace EDR
+ * Project Overwatch - Linux Userspace EDR
  * Phase 2: Syscall Decoding (The Decoder)
  * 
  * This module handles reading and interpreting syscall information:

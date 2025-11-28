@@ -1,8 +1,8 @@
-# Project Watchtower - Linux Userspace EDR
+# Project Overwatch - Linux Userspace EDR
 # Makefile
 #
 # Build targets:
-#   make          - Build the watchtower executable
+#   make          - Build the overwatch executable
 #   make debug    - Build with debug symbols
 #   make clean    - Remove build artifacts
 #   make test     - Build and run test programs
@@ -32,7 +32,7 @@ SOURCES = $(SRC_DIR)/main.c \
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Target executable
-TARGET = $(BIN_DIR)/watchtower
+TARGET = $(BIN_DIR)/overwatch
 
 # Default target
 all: CFLAGS += -O2
@@ -57,12 +57,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 $(TARGET): $(OBJECTS) | $(BIN_DIR)
 	$(CC) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
 	@echo ""
-	@echo "╔══════════════════════════════════════════════════════════╗"
-	@echo "║          BUILD SUCCESSFUL - Project Watchtower           ║"
-	@echo "╠══════════════════════════════════════════════════════════╣"
-	@echo "║  Binary: $(TARGET)                               ║"
-	@echo "║  Usage:  $(TARGET) -- <program> [args]           ║"
-	@echo "╚══════════════════════════════════════════════════════════╝"
+	@echo "\033[1;34m╔════════════════════════════════════════════════════════════╗\033[0m"
+	@echo "\033[1;34m║\033[1;38;5;208m       ⚡ BUILD SUCCESSFUL - Project Overwatch ⚡          \033[1;34m║\033[0m"
+	@echo "\033[1;34m╠════════════════════════════════════════════════════════════╣\033[0m"
+	@echo "\033[1;34m║\033[0m  Binary: \033[1;32m$(TARGET)\033[0m                                 \033[1;34m║\033[0m"
+	@echo "\033[1;34m║\033[0m  Usage:  $(TARGET) -- <program> [args]             \033[1;34m║\033[0m"
+	@echo "\033[1;34m╚════════════════════════════════════════════════════════════╝\033[0m"
 	@echo ""
 
 # Build test malware samples
@@ -83,12 +83,12 @@ test: $(TARGET) test-samples
 
 # Install to system
 install: $(TARGET)
-	sudo cp $(TARGET) /usr/local/bin/watchtower
-	@echo "Installed to /usr/local/bin/watchtower"
+	sudo cp $(TARGET) /usr/local/bin/overwatch
+	@echo "Installed to /usr/local/bin/overwatch"
 
 # Uninstall from system
 uninstall:
-	sudo rm -f /usr/local/bin/watchtower
+	sudo rm -f /usr/local/bin/overwatch
 	@echo "Uninstalled from /usr/local/bin/"
 
 # Clean build artifacts
@@ -98,10 +98,10 @@ clean:
 
 # Show help
 help:
-	@echo "Project Watchtower - Linux Userspace EDR"
+	@echo "Project Overwatch - Linux Userspace EDR"
 	@echo ""
 	@echo "Build targets:"
-	@echo "  make          - Build the watchtower executable (optimized)"
+	@echo "  make          - Build the overwatch executable (optimized)"
 	@echo "  make debug    - Build with debug symbols"
 	@echo "  make clean    - Remove build artifacts"
 	@echo "  make test     - Build and run basic tests"
@@ -110,7 +110,7 @@ help:
 	@echo "  make uninstall - Remove from /usr/local/bin"
 	@echo ""
 	@echo "Quick start:"
-	@echo "  make && ./bin/watchtower -- ls -la"
+	@echo "  make && ./bin/overwatch -- ls -la"
 
 # Phony targets
 .PHONY: all debug clean test test-samples install uninstall help

@@ -1,13 +1,13 @@
 /**
- * Project Watchtower - Linux Userspace EDR
+ * Project Overwatch - Linux Userspace EDR
  * Main Header File
  * 
  * This header defines the core structures and function prototypes
  * for the ptrace-based system call tracer and enforcer.
  */
 
-#ifndef WATCHTOWER_H
-#define WATCHTOWER_H
+#ifndef OVERWATCH_H
+#define OVERWATCH_H
 
 #include <sys/types.h>
 #include <sys/user.h>
@@ -17,7 +17,7 @@
  * CONFIGURATION CONSTANTS
  * ============================================================================ */
 
-#define WATCHTOWER_VERSION "1.0.0"
+#define OVERWATCH_VERSION "1.0.0"
 #define MAX_PATH_LENGTH 4096
 #define MAX_STRING_LENGTH 1024
 #define MAX_RULES 100
@@ -203,4 +203,4 @@ const char *action_str(enforcement_action_t action);
 /* Main Tracing Loop */
 int run_tracer_loop(tracer_context_t *ctx);
 
-#endif /* WATCHTOWER_H */
+#endif /* OVERWATCH_H */
